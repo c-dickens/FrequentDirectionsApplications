@@ -1,4 +1,3 @@
-import sys
 from data_factory import DataFactory
 from frequent_directions import FastFrequentDirections, RobustFrequentDirections
 from frequent_directions_regression import FDRidge
@@ -17,13 +16,6 @@ def mse_experiment():
     eff_rank = int(floor(0.2*d + 0.5))
     ds = DataFactory(n=n,d=d,effective_rank=eff_rank,tail_strength=0.125)
     X,y,w0 = ds.shi_phillips_synthetic()
-    #X /= np.linalg.norm(X,ord='fro')
-    #X,y,w0 = ds.mahoney_synthetic(noise_std=1.0)
-    #X /= np.linalg.norm(X,ord='fro')
-    #X,y,w0 = make_regression(n_samples=n,n_features=d,n_informative=eff_rank,effective_rank=eff_rank,tail_strength=0.125,noise=10.0,coef=True)
-    # X,y,w0 = ds.chowdury_synthetic()
-    # _,s,_ = np.linalg.svd(X,full_matrices=False)
-    
 
     # Optimal bias
     mm = 256
